@@ -11,6 +11,12 @@ int DiceRoll()
     return diceRoll;
 }
 
+int Winner(int x, int y, int z, int w)
+{
+    int winner = Math.Max(w, Math.Max(x, Math.Max(y, z)));
+    return winner;
+}
+
 void Game()
 {
     for (int round = 0; round < 6; round++)
@@ -21,13 +27,13 @@ void Game()
         player3[round] = DiceRoll();
         player4[round] = DiceRoll();
 
-
+        // Skriv ut alla tärningskast
         Console.WriteLine("Player1: " + player1[round]);
         Console.WriteLine("Player2: " + player2[round]);
         Console.WriteLine("Player3: " + player3[round]);
         Console.WriteLine("Player4: " + player4[round]);
 
-        // TODO: Skriv ut resultat
+        Console.WriteLine(Winner(player1[round], player2[round], player3[round], player4[round]));
 
         Console.WriteLine();
         Console.ReadKey();
