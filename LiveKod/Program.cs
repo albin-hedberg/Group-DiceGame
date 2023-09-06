@@ -16,22 +16,7 @@ int DiceRoll()
 
 int Winner(int player1, int player2, int player3, int player4)
 {
-    //foreach (int side in dice)
-    //{
-    //    switch (side)
-    //    {
-    //        case 6:
-    //            if (player1 == 6)
-    //            {
-                    
-    //            }
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 
-    //int winner = Math.Max(player1, Math.Max(player2, Math.Max(player3, player4)));
     return Math.Max(player1, Math.Max(player2, Math.Max(player3, player4)));
 }
 
