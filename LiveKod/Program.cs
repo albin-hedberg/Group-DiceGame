@@ -77,6 +77,22 @@ void Score()
 void Winner()
 {
     Console.WriteLine("Winner: ");
+
+    int highestScore = 0;        // Högsta poängen
+    int highestScoreIndex = -1;  // Index av spelare med högst poäng
+    
+    // Loopa igenom alla spelare
+    for (int currentPlayer = 0; currentPlayer < players.Length; currentPlayer++)
+    {
+        // Om det nuvarande kastet är det högsta
+        if (scores[currentPlayer] > highestScore)
+        {
+            highestScore = scores[currentPlayer];   // Spara värdet av högsta kastet
+            highestScoreIndex = currentPlayer;       // Spara index av spelaren
+        }
+    }
+
+    Console.WriteLine("Winner is: Player" + (highestScoreIndex + 1) + ", Score: " + scores[highestScoreIndex]);
 }
 
 // Main loop för spelet
