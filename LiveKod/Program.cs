@@ -1,7 +1,10 @@
-﻿int[] player1 = new int[7];
+﻿using System.Text;
+
+int[] player1 = new int[7];
 int[] player2 = new int[7];
 int[] player3 = new int[7];
 int[] player4 = new int[7];
+int[] dice = { 6, 5, 4, 3, 2, 1 };
 
 int DiceRoll()
 {
@@ -11,10 +14,25 @@ int DiceRoll()
     return diceRoll;
 }
 
-int Winner(int x, int y, int z, int w)
+int Winner(int player1, int player2, int player3, int player4)
 {
-    int winner = Math.Max(w, Math.Max(x, Math.Max(y, z)));
-    return winner;
+    //foreach (int side in dice)
+    //{
+    //    switch (side)
+    //    {
+    //        case 6:
+    //            if (player1 == 6)
+    //            {
+                    
+    //            }
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    //int winner = Math.Max(player1, Math.Max(player2, Math.Max(player3, player4)));
+    return Math.Max(player1, Math.Max(player2, Math.Max(player3, player4)));
 }
 
 void Game()
@@ -33,12 +51,27 @@ void Game()
         Console.WriteLine("Player3: " + player3[round]);
         Console.WriteLine("Player4: " + player4[round]);
 
-        Console.WriteLine(Winner(player1[round], player2[round], player3[round], player4[round]));
+        int w = Winner(player1[round], player2[round], player3[round], player4[round]);
+        if (player1[round] == w)
+        {
+            Console.WriteLine("First place: Player1");
+        }
+        if (player2[round] == w)
+        {
+            Console.WriteLine("First place: Player2");
+        }
+        if (player3[round] == w)
+        {
+            Console.WriteLine("First place: Player3");
+        }
+        if (player4[round] == w)
+        {
+            Console.WriteLine("First place: Player4");
+        }
 
         Console.WriteLine();
         Console.ReadKey();
     }
 }
-
 
 Game();
